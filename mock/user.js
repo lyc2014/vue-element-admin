@@ -42,7 +42,100 @@ module.exports = [
 
       return {
         code: 20000,
-        data: token
+        data: {
+          token: token,
+          routes: [
+            {
+              type: 'title',
+              name: 'permission',
+              path: '',
+              children: [
+                {
+                  type: 'page',
+                  name: 'Page Permission',
+                  path: '/permission/page',
+                  children: [
+                    {
+                      type: 'button',
+                      name: 'delete'
+                    },
+                    {
+                      type: 'button',
+                      name: 'edit'
+                    }
+                  ]
+                },
+                {
+                  type: 'page',
+                  name: 'Page directive',
+                  path: '/permission/directive',
+                  children: [
+                    {
+                      type: 'button',
+                      name: 'delete'
+                    },
+                    {
+                      type: 'button',
+                      name: 'edit'
+                    }
+                  ]
+                },
+                {
+                  type: 'page',
+                  name: 'Page role',
+                  path: '/permission/role',
+                  children: [
+                    {
+                      type: 'button',
+                      name: 'delete'
+                    },
+                    {
+                      type: 'button',
+                      name: 'edit'
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              type: 'title',
+              name: 'Example',
+              path: '',
+              children: [
+                {
+                  type: 'page',
+                  name: 'Example create',
+                  path: 'example/create',
+                  children: [
+                    {
+                      type: 'button',
+                      name: 'delete'
+                    },
+                    {
+                      type: 'button',
+                      name: 'edit'
+                    }
+                  ]
+                },
+                {
+                  type: 'page',
+                  name: 'Example list',
+                  path: 'example/list',
+                  children: [
+                    {
+                      type: 'button',
+                      name: 'delete'
+                    },
+                    {
+                      type: 'button',
+                      name: 'edit'
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
       }
     }
   },

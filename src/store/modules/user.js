@@ -1,6 +1,6 @@
 import { login, logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import router, { resetRouter } from '@/router'
+import router, { resetRouter, asyncAddRoutes } from '@/router'
 
 const state = {
   token: getToken(),
@@ -35,7 +35,9 @@ const actions = {
     return new Promise((resolve, reject) => {
       login({ username: username.trim(), password: password }).then(response => {
         const { data } = response
-        commit('SET_TOKEN', data.token)
+        asyncAddRoutes(data.routes)
+        // 这里可以补充一个  处理菜单的
+        commit('SET_TOKEN', data.token.token)
         setToken(data.token)
         resolve()
       }).catch(error => {
