@@ -1,11 +1,6 @@
 /* eslint-disable */
-const asynComponents = {
-    '/permission/page': () => import('@/views/permission/page'),
-    '/permission/directive': () => import('@/views/permission/directive'),
-    '/permission/role': () => import('@/views/permission/role'),
-    '/example/create': () => import('@/views/example/create'),
-    '/example/list': () => import('@/views/example/list')
-}
+import { asyncRoutes } from '../index.js'
+// }
 export default function parseAsyncRoutes (routeList) {
     const routes = []
     findPathComponent(routeList)
@@ -13,10 +8,9 @@ export default function parseAsyncRoutes (routeList) {
         for (var i = 0; i < list.length; i++) {
             let { type, path, children } = list[i]
             if (type === 'page') {
+                let route = asyncRoutes.find(item => item.path === path)
                 let obj = {
-                    path,
-                    // eslint-disable-next-line
-                    component: asynComponents[path]
+                    ...route
                 }
                 if (children && children.length > 0) {
                     obj.meta = children.filter(item => item.type === 'button').map(item => item.name)

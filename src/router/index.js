@@ -130,7 +130,33 @@ export const constantRoutes = [
  * asyncRoutes
  * the routes that need to be dynamically loaded based on user roles
  */
-export const asyncRoutes = []
+export const asyncRoutes = [
+  {
+    path: '/permission/page',
+    name: 'permissionPage',
+    component: () => import('@/views/permission/page')
+  },
+  {
+    path: '/permission/directive',
+    name: 'permissionDirective',
+    component: () => import('@/views/permission/directive')
+  },
+  {
+    path: '/permission/role',
+    name: 'permissionRole',
+    component: () => import('@/views/permission/role')
+  },
+  {
+    path: '/example/create',
+    name: 'exampleCreate',
+    component: () => import('@/views/example/create')
+  },
+  {
+    path: '/example/list',
+    name: 'exampleList',
+    component: () => import('@/views/example/list')
+  }
+]
 // export const asyncRoutes1 = [
 //   {
 //     path: '/permission',
